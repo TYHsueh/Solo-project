@@ -1,0 +1,7 @@
+Name: Tun-Yun Hsueh
+Stack: JavaScript/MERN
+GitHub Repo link: https://github.com/TYHsueh/Solo-project
+Project name: FullHouse property rental website
+Project description: A website you can list your properties and find suitable properties for you.
+MVP (Minimum Viable Product) features: in the wireframe
+Bonus feature(s): the account action page
