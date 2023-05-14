@@ -6,7 +6,7 @@ const DisplayAllListing = () => {
     const [allListings, setAllListings] = useState([]);
 
     useEffect(() =>{
-        axios.get('http://localhost:8000/api/allProperties')
+        axios.get('http://localhost:8000/api/allProperties', {withCredentials:true})
             .then((res) =>{
                 console.log(res);
                 setAllListings(res.data)
@@ -20,13 +20,14 @@ const DisplayAllListing = () => {
 
 
     return (
-        <div>
-            <div>
-            <h4>Hi User, ready for a new space?</h4>
+        <div className='container'>
+            <div style={{margin:"50px"}}>
+            <h4>Hi Winner, ready for a new space?</h4>
             </div>
-            <div>
-                <p>For Home</p>
-                <table>
+            <div  className='row' style={{display:"flex", justifyContent:"space-evenly"}}>
+            <div className='col-5' style={{border:"solid 2px grey"}}>
+                <h4>For Home</h4>
+                <table className='table'>
                     <thead>
                         <tr>
                             <th>City</th>
@@ -51,9 +52,9 @@ const DisplayAllListing = () => {
                     </tbody>
                 </table>
             </div>
-            <div>
-                <p>For Business</p>
-                <table>
+            <div className='col-5'  style={{border:"solid 2px grey"}}>
+                <h4>For Business</h4>
+                <table className='table'>
                     <thead>
                         <tr>
                             <th>City</th>
@@ -78,7 +79,7 @@ const DisplayAllListing = () => {
                     </tbody>
                 </table>
             </div>
-
+            </div>
         </div>
     );
 }

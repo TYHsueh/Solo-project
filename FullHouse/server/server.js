@@ -24,8 +24,8 @@ app.use(express.json(), express.urlencoded({ extended: true }));
 //*then we store all the routes and functions in TvShowRoutes variable
 const PropertyRoutes = require("./routes/property.routes");
 PropertyRoutes(app);
-//const UserRoutes =require('./routes/user.routes');
-//UserRoutes(app);
+const UserRoutes =require('./routes/user.routes');
+UserRoutes(app);
 
 //running the function and pass in the app as paremeter(since the route only has one parameter)
     

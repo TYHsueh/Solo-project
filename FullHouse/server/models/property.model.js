@@ -47,10 +47,14 @@ const propertySchema = new mongoose.Schema({
         type: String,
         required: [true, 'Description is required'],
         minLength: [3,'The description must be 3 or more characters'],
+    },
+    user_id:{
+        type:mongoose.Types.ObjectId //since the user _id from mongoose is an ObjectId
+    },
+    request_id:{
+        type:mongoose.Types.ObjectId
     }
-    //user_id:{
-    //    type:mongoose.Types.ObjectId //since the user _id from mongoose is an ObjectId
-    //}
+
 },
 // ! add timestamps ! it is used for creating "created_at" and "updated_at" for the document
 {timeststamps: true}

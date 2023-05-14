@@ -33,7 +33,7 @@ UserSchema.virtual('confirmPassword')
 .set((value)=> this.confirmPassword = value)//.set put the value you just enter through form as the value of confirmPassword key
 //in short these 3 lines set the virtual field confirmPassword for later validation
 
-//then run pre() function (pre means before saving info to DB) to compare if the passwords match 
+//then run pre() function (pre means before run entered info validattion) to compare if the passwords match 
 //means we want to run the function before 'validate"(here: data validation for user model) 
 UserSchema.pre('validate', function(next){
     if(this.password !== this.confirmPassword){
@@ -44,7 +44,7 @@ UserSchema.pre('validate', function(next){
 })
 
 //this should go after
-// then before saving data to DB, hash pw. (never store original pw in the DB)
+// after info validation, before saving data to DB, hash pw. (never store original pw in the DB)
 UserSchema.pre('save', function(next){
     bcrypt.hash(this.password, 10)//hash pw for 10 times
     .then(hash =>{
@@ -55,3 +55,5 @@ UserSchema.pre('save', function(next){
 
 const User= mongoose.model('User', UserSchema);
 module.exports = User
+
+//the flow model-> set virtual key: value (here confirmPassword) -> compare pw (if match) -> run info validation -> hash pw -> save User

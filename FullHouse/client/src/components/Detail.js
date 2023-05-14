@@ -9,7 +9,7 @@ const Detail = () => {
     //console.log(id);
 
     useEffect(() =>{
-        axios.get(`http://localhost:8000/api/allProperties/${id}`)
+        axios.get(`http://localhost:8000/api/allProperties/${id}`, {withCredentials:true})
             .then((res) =>{
                 console.log(res);
                 setListing(res.data)
@@ -19,17 +19,17 @@ const Detail = () => {
             })
     }, []);
 
-    const deleteHandler =(id) =>{
-        axios.delete(`http://localhost:8000/api/allProperties/${id}`)
-            .then((res) =>{
-                console.log(res)
-                navigate('/dashboard')
+    // const deleteHandler =(id) =>{
+    //     axios.delete(`http://localhost:8000/api/allProperties/${id}`, {withCredentials:true})
+    //         .then((res) =>{
+    //             console.log(res)
+    //             navigate('/dashboard')
 
-            })
-            .catch((err) =>{
-                console.log(err)
-            })
-    };
+    //         })
+    //         .catch((err) =>{
+    //             console.log(err)
+    //         })
+    // };
 
     return (
         <div>
@@ -40,10 +40,8 @@ const Detail = () => {
                 <p>Description: {listing.desc}</p>
             </div>
             <div>
-                <button>Request</button>
-                <br/>
-                <Link to={`/editListing/${listing._id}`} >Edit</Link>
-                <button onClick={() =>deleteHandler(listing._id)} >Delete</button>
+                <Link to={'/dashboard'}>Back</Link>
+                
             </div>
 
         </div>
