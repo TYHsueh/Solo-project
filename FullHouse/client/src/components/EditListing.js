@@ -56,6 +56,11 @@ const EditListing = () => {
             <div style={{ display: "flex", justifyContent: "center", margin: "20px" }}>
                 <form onSubmit={submitHandler} style={{ width: "350px" }}>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                    {
+                            errors.owner ?
+                                <p style={{ color: "red",fontSize:"x-large", fontFamily:"bold" }}>{errors.owner.message}</p> :
+                                null
+                        }
                         <label className='form-label'>Type</label>
                         <select name="type" onChange={changeHandler} value={listing.type} className='form-select'>
                             <option value=""> </option>

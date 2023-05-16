@@ -32,12 +32,13 @@ const Detail = () => {
     // };
 
     return (
-        <div>
+        <div style={{margin:"30px"}}>
             <div>
                 <h3>{listing.address} <br/> {listing.city}, {listing.state}, {listing.zipcode} <br/>  </h3>
                 <h3>${listing.price} / month</h3>
+                <p>Type: {listing.type}</p>
                 <p>SqFt: {listing.sqft}  Bed: {listing.bed} Bath: {listing.bath} </p>
-                <p>Description: {listing.desc}</p>
+                <p>Description: <br/> {listing.desc}</p>
             </div>
             <div>
                 <Link to={'/dashboard'}>Back</Link>

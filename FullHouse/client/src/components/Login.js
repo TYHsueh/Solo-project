@@ -30,13 +30,13 @@ const Login = (props) => {
         <div>
             <h2>Login</h2>
             <form onSubmit={submitHandler}>
-                <div>
-                    <label>Email:</label>
-                    <input type="text" name="email" onChange={changeHandler} value={userLogin.email} />
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                    <label className='form-label'>Email:</label>
+                    <input className='form-control' type="text" name="email" onChange={changeHandler} value={userLogin.email} />
                 </div>
-                <div>
-                    <label>Password:</label>
-                    <input type="password" name="password" onChange={changeHandler} value={userLogin.password} />
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                    <label className='form-label'>Password:</label>
+                    <input className='form-control' type="password" name="password" onChange={changeHandler} value={userLogin.password} />
                     {
                         errors ?
                             <p style={{ color: "red" }} >{errors.message}</p> :
@@ -44,10 +44,10 @@ const Login = (props) => {
                     }
                 </div>
                 <div>
-                    <input type="submit" value="Login" />
+                    <input type="submit" value="Login" className='btn btn-secondary' style={{ margin: "10px"}} />
                 </div>
             </form>
-            <p style={{color:"lightblue"}}>Do not have an account? Create one!</p>
+            <p style={{color:"DodgerBlue"}}>Do not have an account? Create one!</p>
         </div>
     );
 }

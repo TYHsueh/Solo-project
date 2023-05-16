@@ -35,45 +35,45 @@ const Register = (props) => {
         <div>
             <h2>Register</h2>
             <form onSubmit={submitHandler}>
-                <div>
-                    <label>First Name:</label>
-                    <input type="text" name="firstName" onChange={changeHandler} value={user.firstName} />
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                    <label className='form-label'>First Name:</label>
+                    <input className='form-control' type="text" name="firstName" onChange={changeHandler} value={user.firstName} />
                     {
                         errors.firstName ?
                             <p style={{ color: "red" }}>{errors.firstName.message}</p> :
                             null
                     }
                 </div>
-                <div>
-                    <label>Last Name:</label>
-                    <input type="text" name="lastName" onChange={changeHandler} value={user.lastName} />
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                    <label className='form-label'>Last Name:</label>
+                    <input className='form-control' type="text" name="lastName" onChange={changeHandler} value={user.lastName} />
                     {
                         errors.lastName ?
                             <p style={{ color: "red" }}>{errors.lastName.message}</p> :
                             null
                     }
                 </div>
-                <div>
-                    <label>Email:</label>
-                    <input type="text" name="email" onChange={changeHandler} value={user.email} />
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                    <label className='form-label'>Email:</label>
+                    <input className='form-control' type="text" name="email" onChange={changeHandler} value={user.email} />
                     {
                         errors.email ?
                             <p style={{ color: "red" }}>{errors.email.message}</p> :
                             null
                     }
                 </div>
-                <div>
-                    <label>Password:</label>
-                    <input type="password" name="password" onChange={changeHandler} value={user.password} />
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                    <label className='form-label'>Password:</label>
+                    <input className='form-control' type="password" name="password" onChange={changeHandler} value={user.password} />
                     {
                         errors.password ?
                             <p style={{ color: "red" }}>{errors.password.message}</p> :
                             null
                     }
                 </div>
-                <div>
-                    <label>Confirm Password:</label>
-                    <input type="password" name="confirmPassword" onChange={changeHandler} value={user.confirmPassword} />
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                    <label className='form-label'>Confirm Password:</label>
+                    <input className='form-control' type="password" name="confirmPassword" onChange={changeHandler} value={user.confirmPassword} />
                     {
                         errors.confirmPassword ?
                             <p style={{ color: "red" }}>{errors.confirmPassword.message}</p> :
@@ -81,10 +81,10 @@ const Register = (props) => {
                     }
                 </div>
                 <div>
-                    <input type="submit" value="Register" />
+                    <input type="submit" value="Register" className='btn btn-secondary' style={{ margin: "10px"}} />
                 </div>
             </form>
-            <p style={{color:"blue"}}>Already have an accout? Please Log in.</p>
+            <p style={{color:"DodgerBlue"}}>Already have an accout? Please Log in.</p>
         </div>
     );
 }

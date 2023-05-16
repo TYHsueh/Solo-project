@@ -4,8 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 
 const MyAccount = () => {
     const navigate = useNavigate();
-
     const [myListings, setMyListings] = useState([]);
+    
     useEffect(() =>{
         axios.get('http://localhost:8000/api/myListings', {withCredentials:true})
         .then((res) =>{
@@ -41,7 +41,7 @@ const MyAccount = () => {
                             <th>City</th>
                             <th>Price/mo</th>
                             <th>SqFt</th>
-                            <th>Action</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
