@@ -3,21 +3,30 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
+           //const {userEmail, setUserEmail} = props;(not work!)
     const navigate = useNavigate();
     const [userLogin, setUserLogin] = useState({
         email:"",
         password:""
     });
+    
     const [errors, setErrors] = useState({});
     const changeHandler =(e) =>{
         setUserLogin({...userLogin, [e.target.name]:e.target.value})
+             //setUserEmail(userLogin.email); (not work!)
     };
+
     const submitHandler = (e) =>{
         e.preventDefault();
         //{withCredentials:true}: allow us to generate useToken/cookies from the back end
         axios.post('http://localhost:8000/api/login', userLogin, {withCredentials:true})
             .then((res) =>{
                 console.log(res);
+                //using localStorage (built-in fun for js) to store data from console. 
+                //1.it has no expiration 2.can be retrieved from other components by .getItem()
+                //
+                localStorage.setItem("firstName", res.data.firstName)
+                localStorage.setItem("user_id", res.data._id)
                 navigate('/dashboard');
             })
             .catch((err) =>{

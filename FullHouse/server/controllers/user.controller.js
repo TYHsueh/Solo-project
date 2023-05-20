@@ -49,6 +49,8 @@ module.exports = {
                     console.log(userToken)
                     //log the user in (generate cookies)
                     res.status(201).cookie('userToken', userToken, {httpOnly:true, maxAge:2*60*60*1000}).json(user)
+                    //use .json(user) to send user's data to client (in console, so we can retrive it from front-end)
+                    //in js, we can ues localStorage.getItem() and set it to useState to display info in componenets
                 }else{
                     //if the pw does not match
                     res.status(400).json({message:'Invalid email/password'})
@@ -66,5 +68,16 @@ module.exports = {
     //log out user(clear userToken/cookies)
     logoutUser: (req, res)=>{
         res.clearCookie('userToken').json({message:'You logged out'})
+    },
+
+    findOneUser:async (req, res) => {
+        try{
+            console.log(req.params);
+            const theUser = await User.findOne({email:req.params.email})
+            res.status(200).json(theUser);
+        }
+        catch(err){
+            res.status(400).json(err)
+        }
     }
 }

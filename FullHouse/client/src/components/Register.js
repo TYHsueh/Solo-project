@@ -23,6 +23,9 @@ const Register = (props) => {
         axios.post('http://localhost:8000/api/register', user, {withCredentials:true})
             .then((res) =>{
                 console.log(res)
+                //set localStorage to store data when reg/login to preserve key value for later access from different components
+                localStorage.setItem("firstName", res.data.firstName)
+                localStorage.setItem("userId", res.data._id)
                 navigate('/dashboard')
             })
             .catch((err)=>{

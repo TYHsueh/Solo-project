@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const propertySchema = new mongoose.Schema({
     type: {
         type: String,
-        required: [true, 'Type is required'],
+        required: [true, 'Type is required']
     },
     price: {
         type: Number,

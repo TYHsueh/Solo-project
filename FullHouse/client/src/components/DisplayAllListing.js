@@ -2,10 +2,14 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
-const DisplayAllListing = () => {
+const DisplayAllListing = (props) => {
     const [allListings, setAllListings] = useState([]);
+    const {username, setUsername} = props;
 
     useEffect(() =>{
+        // using the info we store in localstorage to set State for displaying info or other use
+        setUsername(localStorage.getItem("firstName"));
+
         axios.get('http://localhost:8000/api/allProperties', {withCredentials:true})
             .then((res) =>{
                 console.log(res);
@@ -21,6 +25,7 @@ const DisplayAllListing = () => {
 
     return (
         <div className='container'>
+            <h3>Hi {username}</h3>
             <div style={{margin:"50px"}}>
             <h4>Hi Winner, ready for a new space?</h4>
             </div>
